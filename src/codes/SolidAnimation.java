@@ -12,11 +12,8 @@ public class SolidAnimation extends AnimationBase {
 
     public void init() {
         this.strip.setAll(color);
-        //this.strip.apply();
-
     }
 
     public void periodic() {
-        //this.strip.apply();
     }
 }
