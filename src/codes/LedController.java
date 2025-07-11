@@ -14,9 +14,7 @@ public class LedController {
         strip.apply();     
     }
 
-    public double getSessionRuntime(){
-        return currentAnimation.getRunTime();
-    }
+    
 
     public void setAnimation(AnimationBase animation){
         this.currentAnimation = animation;
