@@ -10,12 +10,14 @@ public class LedController {
     }
 
     public void periodic(){
-        currentAnimation.periodic();     
+        currentAnimation.periodic();
+        strip.apply();     
     }
 
     public void setAnimation(AnimationBase animation){
         this.currentAnimation = animation;
         currentAnimation.setStrip(strip);
         currentAnimation.init();
+        strip.apply();
     }
 }
