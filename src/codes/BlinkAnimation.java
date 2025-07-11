@@ -14,15 +14,10 @@ public class BlinkAnimation extends AnimationBase {
         this.interval = interval;
     }
 
-    public void setStopWatch(StopWatch stopWatch){
-        this.stopWatch = stopWatch;
-    }
-
     public void init() {
+        super.init();
         this.strip.setAll(color);
         strip.apply();
-        setStopWatch(new StopWatch());
-        this.stopWatch.start();
         startTime = (int)stopWatch.get();
     }
 
