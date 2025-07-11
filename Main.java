@@ -1,6 +1,8 @@
 import java.awt.Color;
 
 import LedsSim.LedSim;
+import Utils.StopWatch;
+import src.codes.BlinkAnimation;
 import src.codes.LedController;
 import src.codes.SolidAnimation;
 
@@ -10,8 +12,9 @@ public class Main {
 
         LedSim ledSim = LedSim.getRowsSim(100);
         LedController LC = new LedController(ledSim);
-        LC.setAnimation(new SolidAnimation(new Color(100, 0, 40)));
+        LC.setAnimation(new BlinkAnimation(new Color(100, 0, 40), new StopWatch()));
         while(true)
             LC.periodic();
+            
     }
 }
