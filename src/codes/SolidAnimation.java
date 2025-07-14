@@ -15,6 +15,5 @@ public class SolidAnimation extends AnimationBase {
     }
 
     public void periodic() {
-        this.stopWatch.start();
     }
 }
