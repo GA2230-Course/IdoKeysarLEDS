@@ -11,6 +11,11 @@ public class SolidAnimation extends AnimationBase {
     }
 
     @Override
+    public boolean isOver() {
+        return false;
+    }
+
+    @Override
     public void init() {
         this.strip.setAll(color);
     }

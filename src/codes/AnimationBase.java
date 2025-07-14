@@ -12,7 +12,7 @@ public abstract class AnimationBase {
 
     public abstract void init();
         
-    
+    public abstract  boolean isOver();
 
     public abstract void periodic();
 
