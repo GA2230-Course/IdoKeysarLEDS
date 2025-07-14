@@ -10,11 +10,11 @@ public class LedController {
     }
 
     public void periodic(){
-        currentAnimation.periodic();
-        strip.apply();     
+        if (!currentAnimation.isOver()) {
+            currentAnimation.periodic();
+            strip.apply();
+        }     
     }
-
-    
 
     public void setAnimation(AnimationBase animation){
         this.currentAnimation = animation;
