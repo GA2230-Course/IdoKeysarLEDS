@@ -6,22 +6,17 @@ import java.awt.Color;
 public class BlinkAnimation extends AnimationBase {
     protected Color color;
     protected int interval;
-    private int startTime;
+    protected int startTime;
     protected StopWatch stopWatch = new StopWatch();
 
-    protected double animationDuration = 10.0;
 
-    public BlinkAnimation(Color color, int interval, double animationDuration) {
+    public BlinkAnimation(Color color, int interval) {
         this.color = color;
         this.interval = interval;
-        this.animationDuration = animationDuration;
     }
 
     @Override
     public boolean isOver() {
-        if (this.stopWatch.get() > animationDuration) { 
-            return true;
-        }
         return false;
     }
 
