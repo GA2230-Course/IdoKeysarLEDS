@@ -10,9 +10,9 @@ public abstract class AnimationBase {
         this.strip = strip;
     }
 
-    public void init(){
+    public abstract void init();
         
-    }
+    
 
     public abstract void periodic();
 
