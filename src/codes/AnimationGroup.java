@@ -17,16 +17,16 @@ public abstract class AnimationGroup extends AnimationBase {
     }
 
     @Override
-    public  boolean isOver() {
+    public boolean isOver() {
         return false;
     }
 
     @Override
     public void init() {
-        superInit();
+        initCurrentAnimation();
     }
 
-    protected void superInit(){
+    protected void initCurrentAnimation() {
         animations[currentAnimationIndex].setStrip(strip);
         animations[currentAnimationIndex].init();
     }
@@ -35,9 +35,9 @@ public abstract class AnimationGroup extends AnimationBase {
     public void periodic() {
         animations[currentAnimationIndex].periodic();
         if (animations[currentAnimationIndex].isOver()) {
-            animations[nextIndex].setStrip(strip);
-            animations[nextIndex].init();
-            currentAnimationIndex = nextIndex;
+            currentAnimationIndex = chooseNextIndex();
+            initCurrentAnimation();
+
         }
     }
 

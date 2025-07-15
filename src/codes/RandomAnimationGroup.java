@@ -3,27 +3,21 @@ package src.codes;
 import java.util.Random;
 
 public class RandomAnimationGroup extends SequentialAnimationGroup {
-    
+
     private Random rnd = new Random();
 
-    public RandomAnimationGroup(AnimationBase... animations){
+    public RandomAnimationGroup(AnimationBase... animations) {
         super(animations);
     }
 
     @Override
-    public void init(){
+    public void init() {
         currentAnimationIndex = rnd.nextInt(numOfAnimations);
-        superInit();
+        initCurrentAnimation();
     }
 
     @Override
-    public void periodic(){
-        super.periodic();
-        chooseNextIndex();        
-    }
-
-    @Override
-    public int chooseNextIndex(){
+    public int chooseNextIndex() {
         nextIndex = rnd.nextInt(numOfAnimations);
         return rnd.nextInt(numOfAnimations);
     }

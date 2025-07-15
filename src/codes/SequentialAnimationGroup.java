@@ -13,22 +13,15 @@ public class SequentialAnimationGroup extends AnimationGroup {
 
     @Override
     public void init() {
-        superInit();
+        initCurrentAnimation();
     }
 
     @Override
-    public void periodic() {
-        super.periodic();
-        chooseNextIndex();
-        
-    }
-
-    @Override
-    public int chooseNextIndex(){
+    public int chooseNextIndex() {
         if (currentAnimationIndex < numOfAnimations) {
             currentAnimationIndex++;
         }
         return currentAnimationIndex;
     }
-    
+
 }
