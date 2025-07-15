@@ -1,4 +1,5 @@
 package src.codes;
+
 import LedsSim.LedStrip;
 
 public class LedController {
@@ -6,26 +7,32 @@ public class LedController {
     protected AnimationBase currentAnimation;
     protected AnimationBase defaultAnimation;
 
-    public LedController(LedStrip strip){
+    private boolean defaledInitted = false;
+
+    public LedController(LedStrip strip) {
         this.strip = strip;
     }
 
-    public void periodic(){
-        if (currentAnimation.isOver())
+    public void periodic() {
+        if (currentAnimation.isOver() && defaultAnimation != null) {
+            if (!defaledInitted) {
+                defaultAnimation.init();
+                defaledInitted = true;
+            }
             defaultAnimation.periodic();
-        else
+        } else if (!currentAnimation.isOver())
             currentAnimation.periodic();
         strip.apply();
     }
 
-    public void setAnimation(AnimationBase animation){
+    public void setAnimation(AnimationBase animation) {
         this.currentAnimation = animation;
         currentAnimation.setStrip(strip);
         currentAnimation.init();
         strip.apply();
     }
 
-    public void setDefaultAnimation(AnimationBase animation){
+    public void setDefaultAnimation(AnimationBase animation) {
         this.defaultAnimation = animation;
         defaultAnimation.setStrip(strip);
         defaultAnimation.init();
