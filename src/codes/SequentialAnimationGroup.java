@@ -1,18 +1,9 @@
 package src.codes;
 
-public class SequentialAnimationGroup extends AnimationBase {
-    protected AnimationBase[] animations;
-    protected int currentAnimationIndex = 0;
-    protected int numOfAnimations;
+public class SequentialAnimationGroup extends AnimationGroup {
 
     public SequentialAnimationGroup(AnimationBase... animations) {
-        int i = 0;
-        this.animations = new AnimationBase[animations.length];
-        this.numOfAnimations = animations.length;
-        for (AnimationBase animation : animations) {
-            this.animations[i] = animation;
-            i++;
-        }
+        super(animations);
     }
 
     @Override
@@ -22,19 +13,15 @@ public class SequentialAnimationGroup extends AnimationBase {
 
     @Override
     public void init() {
-        animations[currentAnimationIndex].setStrip(strip);
-        animations[currentAnimationIndex].init();
+        initCurrentAnimation();
     }
 
     @Override
-    public void periodic() {
+    public int chooseNextIndex() {
         if (currentAnimationIndex < numOfAnimations) {
-            if (animations[currentAnimationIndex].isOver()) {
-                animations[currentAnimationIndex + 1].setStrip(strip);
-                animations[currentAnimationIndex + 1].init();
-                currentAnimationIndex++;
-            }
-            animations[currentAnimationIndex].periodic();
+            currentAnimationIndex++;
         }
+        return currentAnimationIndex;
     }
+
 }

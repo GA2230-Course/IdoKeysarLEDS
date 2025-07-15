@@ -31,7 +31,7 @@ public class BlinkAnimation extends AnimationBase {
     @Override
     public void periodic() {
         int timeInSeconds = (int) stopWatch.get();
-        System.out.println(timeInSeconds);
+        //System.out.println(timeInSeconds);
         if (timeInSeconds % interval == 0) {
             startTime = timeInSeconds;
         }

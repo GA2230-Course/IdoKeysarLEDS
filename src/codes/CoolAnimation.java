@@ -5,16 +5,13 @@ import java.util.Random;
 
 public class CoolAnimation extends AnimationBase{
     protected Color color;
-    protected int interval;
-    protected int startTime;
     protected StopWatch stopWatch = new StopWatch();
 
     Color[] leds;
 
 
-    public CoolAnimation(Color color, int interval) {
+    public CoolAnimation(Color color) {
         this.color = color;
-        this.interval = interval;
     }
 
     @Override
@@ -27,7 +24,6 @@ public class CoolAnimation extends AnimationBase{
         this.stopWatch.start();
         this.strip.setAll(color);
         strip.apply();
-        startTime = (int)stopWatch.get();
         leds = new Color[strip.getLedCount()];
 
     }
@@ -35,7 +31,7 @@ public class CoolAnimation extends AnimationBase{
     @Override
     public void periodic() {
         int timeInSeconds = (int) stopWatch.get();
-        System.out.println(timeInSeconds);
+        //System.out.println(timeInSeconds);
         if (timeInSeconds % 2 == 0){
             Random random = new Random();
             int red = random.nextInt(20);
