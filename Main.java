@@ -12,7 +12,7 @@ public class Main {
         LedSim ledSim = LedSim.getRowsSim(100);
         LedController LC = new LedController(ledSim);
         BlinkAnimation blinkAnimation = new BlinkAnimation(new Color(100, 0, 40), 5);
-        LC.setAnimation(new AnimationTimed(blinkAnimation, 10.0));
+        LC.setAnimation(new AnimationTimed(blinkAnimation, 15.0));
 
         while (true)
             LC.periodic();

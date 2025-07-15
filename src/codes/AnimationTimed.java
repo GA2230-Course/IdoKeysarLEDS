@@ -5,7 +5,7 @@ import Utils.StopWatch;
 
 public class AnimationTimed extends AnimationBase {
 
-    protected double animationDuration = 10.0;
+    protected double animationDuration;
     protected StopWatch stopWatch = new StopWatch();
     protected AnimationBase currentAnimation;
 
@@ -22,7 +22,7 @@ public class AnimationTimed extends AnimationBase {
 
     @Override
     public boolean isOver() {
-        if (this.stopWatch.get() > animationDuration) { 
+        if (this.stopWatch.get() > animationDuration || this.currentAnimation.isOver()) { 
             return true;
         }
         return false;
