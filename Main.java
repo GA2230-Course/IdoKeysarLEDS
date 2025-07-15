@@ -5,6 +5,7 @@ import src.codes.AnimationTimed;
 import src.codes.BlinkAnimation;
 import src.codes.CoolAnimation;
 import src.codes.LedController;
+import src.codes.RandomAnimationGroup;
 import src.codes.SequentialAnimationGroup;
 import src.codes.SolidAnimation;
 
@@ -20,9 +21,9 @@ public class Main {
         AnimationTimed blink = new AnimationTimed(blinkAnimation, 10);
         AnimationTimed cool = new AnimationTimed(coolAnimation, 10);
 
-        SequentialAnimationGroup sequentialAnimationGroup = new SequentialAnimationGroup(blink, cool, blink, cool);
+        RandomAnimationGroup randomAnimationGroup = new RandomAnimationGroup(blink, cool, blink, cool);
 
-        LC.setAnimation(sequentialAnimationGroup);
+        LC.setAnimation(randomAnimationGroup);
 
         while (true)
             LC.periodic();

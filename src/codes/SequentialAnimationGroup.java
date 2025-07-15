@@ -2,8 +2,8 @@ package src.codes;
 
 public class SequentialAnimationGroup extends AnimationBase {
     protected AnimationBase[] animations;
-    private int currentAnimationIndex = 0;
-    private int numOfAnimations;
+    protected int currentAnimationIndex = 0;
+    protected int numOfAnimations;
 
     public SequentialAnimationGroup(AnimationBase... animations) {
         int i = 0;
