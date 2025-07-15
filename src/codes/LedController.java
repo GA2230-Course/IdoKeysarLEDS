@@ -7,7 +7,7 @@ public class LedController {
     protected AnimationBase currentAnimation;
     protected AnimationBase defaultAnimation;
 
-    private boolean defaledInitted = false;
+    private boolean defauledInitted = false;
 
     public LedController(LedStrip strip) {
         this.strip = strip;
@@ -15,9 +15,9 @@ public class LedController {
 
     public void periodic() {
         if (currentAnimation.isOver() && defaultAnimation != null) {
-            if (!defaledInitted) {
+            if (!defauledInitted) {
                 defaultAnimation.init();
-                defaledInitted = true;
+                defauledInitted = true;
             }
             defaultAnimation.periodic();
         } else if (!currentAnimation.isOver())
@@ -27,6 +27,7 @@ public class LedController {
 
     public void setAnimation(AnimationBase animation) {
         this.currentAnimation = animation;
+        defauledInitted = false;
         currentAnimation.setStrip(strip);
         currentAnimation.init();
         strip.apply();
