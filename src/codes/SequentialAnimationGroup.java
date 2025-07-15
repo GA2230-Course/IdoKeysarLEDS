@@ -25,9 +25,7 @@ public class SequentialAnimationGroup extends AnimationBase {
 
     @Override
     public void init() {
-        for (int i = 0; i < numOfAnimations; i++) {
-            animations[i].setStrip(strip);
-        }
+        animations[currentAnimationIndex].setStrip(strip);
         animations[currentAnimationIndex].init();
     }
 
@@ -35,12 +33,11 @@ public class SequentialAnimationGroup extends AnimationBase {
     public void periodic() {
         if (currentAnimationIndex < numOfAnimations) {
             if (animations[currentAnimationIndex].isOver()) {
+                animations[currentAnimationIndex + 1].setStrip(strip);
                 animations[currentAnimationIndex + 1].init();
                 currentAnimationIndex++;
             }
             animations[currentAnimationIndex].periodic();
-        } else {
-            animations[numOfAnimations - 1].periodic();
         }
     }
 }
