@@ -11,27 +11,20 @@ public class RandomAnimationGroup extends SequentialAnimationGroup {
     }
 
     @Override
-    public boolean isOver(){
-        return false;
-    }
-
-    @Override
     public void init(){
-        int rndIndex = rnd.nextInt(numOfAnimations);
-        currentAnimationIndex = rndIndex;
-        animations[currentAnimationIndex].setStrip(strip);
-        animations[currentAnimationIndex].init();
+        currentAnimationIndex = rnd.nextInt(numOfAnimations);
+        superInit();
     }
 
     @Override
     public void periodic(){
-        if (animations[currentAnimationIndex].isOver()) {
-            int rndIndex = rnd.nextInt(numOfAnimations);
-            animations[rndIndex].setStrip(strip);
-            animations[rndIndex].init();
-            currentAnimationIndex = rndIndex;
-        }
-        animations[currentAnimationIndex].periodic();
-        
+        super.periodic();
+        chooseNextIndex();        
+    }
+
+    @Override
+    public int chooseNextIndex(){
+        nextIndex = rnd.nextInt(numOfAnimations);
+        return rnd.nextInt(numOfAnimations);
     }
 }
