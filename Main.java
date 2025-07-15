@@ -6,6 +6,7 @@ import src.codes.BlinkAnimation;
 import src.codes.CoolAnimation;
 import src.codes.LedController;
 import src.codes.RandomAnimationGroup;
+import src.codes.RobotEnum;
 
 public class Main {
     public static void main(String[] args) {
@@ -21,7 +22,7 @@ public class Main {
 
         RandomAnimationGroup randomAnimationGroup = new RandomAnimationGroup(blink, cool);
 
-        LC.setAnimation(randomAnimationGroup);
+        LC.chooseAnimation(RobotEnum.CLIMB);
 
         while (true)
             LC.periodic();

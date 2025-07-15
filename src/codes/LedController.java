@@ -1,5 +1,7 @@
 package src.codes;
 
+import java.awt.Color;
+
 import LedsSim.LedStrip;
 
 public class LedController {
@@ -37,5 +39,35 @@ public class LedController {
         this.defaultAnimation = animation;
         defaultAnimation.setStrip(strip);
         defaultAnimation.init();
+    }
+
+    public void chooseAnimation(RobotEnum currentState){
+        switch (currentState) {
+            case INTAKE:
+                currentAnimation = (new SolidAnimation(Color.RED));
+                break;
+            case CORAL_IN_ROBOT:
+                currentAnimation = (new BlinkAnimation(Color.RED, 2));
+                break;
+            case L1:
+                currentAnimation = (new BlinkAnimation(Color.GREEN, 2));
+                break;
+            case L2:
+                currentAnimation = (new BlinkAnimation(Color.ORANGE, 2));
+                break;
+            case L3:
+                currentAnimation = (new BlinkAnimation(Color.WHITE, 2));
+                break;
+            case L4:
+                currentAnimation = (new BlinkAnimation(Color.BLUE, 2));
+                break;
+            case CLIMB:
+                currentAnimation = (new CoolAnimation(Color.BLACK));     
+                break; 
+            default:
+                currentAnimation = (new SolidAnimation(Color.BLACK));
+                break;
+        }
+        setAnimation(currentAnimation);
     }
 }
