@@ -13,6 +13,8 @@ public class Main {
         LedController LC = new LedController(ledSim);
         BlinkAnimation blinkAnimation = new BlinkAnimation(new Color(100, 0, 40), 5);
         LC.setAnimation(new AnimationTimed(blinkAnimation, 15.0));
+        BlinkAnimation defaultBlinkAnimation = new BlinkAnimation(new Color(0, 100, 40), 5);
+        LC.setDefaultAnimation(defaultBlinkAnimation);
 
         while (true)
             LC.periodic();
