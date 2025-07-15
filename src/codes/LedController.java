@@ -41,24 +41,33 @@ public class LedController {
         defaultAnimation.init();
     }
 
-    public AnimationBase chooseAnimation(RobotEnum currentState){
+    public void chooseAnimation(RobotEnum currentState){
         switch (currentState) {
             case INTAKE:
-                return (new SolidAnimation(Color.RED));
+                currentAnimation = (new SolidAnimation(Color.RED));
+                break;
             case CORAL_IN_ROBOT:
-                return (new BlinkAnimation(Color.RED, 2));
+                currentAnimation = (new BlinkAnimation(Color.RED, 2));
+                break;
             case L1:
-                return (new BlinkAnimation(Color.GREEN, 2));
+                currentAnimation = (new BlinkAnimation(Color.GREEN, 2));
+                break;
             case L2:
-                return (new BlinkAnimation(Color.ORANGE, 2));
+                currentAnimation = (new BlinkAnimation(Color.ORANGE, 2));
+                break;
             case L3:
-                return (new BlinkAnimation(Color.WHITE, 2));
+                currentAnimation = (new BlinkAnimation(Color.WHITE, 2));
+                break;
             case L4:
-                return (new BlinkAnimation(Color.BLUE, 2));
+                currentAnimation = (new BlinkAnimation(Color.BLUE, 2));
+                break;
             case CLIMB:
-                return (new CoolAnimation(Color.BLACK));      
+                currentAnimation = (new CoolAnimation(Color.BLACK));     
+                break; 
             default:
-                return (new SolidAnimation(Color.BLACK));
+                currentAnimation = (new SolidAnimation(Color.BLACK));
+                break;
         }
+        setAnimation(currentAnimation);
     }
 }
