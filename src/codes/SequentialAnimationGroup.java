@@ -17,10 +17,7 @@ public class SequentialAnimationGroup extends AnimationBase {
 
     @Override
     public boolean isOver() {
-        if (currentAnimationIndex == numOfAnimations - 1) {
-            return animations[currentAnimationIndex].isOver();
-        }
-        return false;
+        return currentAnimationIndex == numOfAnimations;
     }
 
     @Override

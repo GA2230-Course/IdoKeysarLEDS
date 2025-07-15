@@ -20,7 +20,7 @@ public class Main {
         AnimationTimed blink = new AnimationTimed(blinkAnimation, 10);
         AnimationTimed cool = new AnimationTimed(coolAnimation, 10);
 
-        SequentialAnimationGroup sequentialAnimationGroup = new SequentialAnimationGroup(blink, cool);
+        SequentialAnimationGroup sequentialAnimationGroup = new SequentialAnimationGroup(blink, cool, blink, cool);
 
         LC.setAnimation(sequentialAnimationGroup);
 
